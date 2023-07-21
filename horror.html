@@ -25,12 +25,13 @@
 <body>
     <button class="btn-see-here bg-red-600 text-white font-bold py-2 px-4 rounded shadow mt-8">Klik Disini</button>
     <img class="horror-image mt-4 " src="https://dl.kaskus.id/i.ytimg.com/vi/TN2DunrJY7k/hqdefault.jpg" alt="Horror Image">
-    <audio controls> 
+    <audio id="sound-image"> 
         <source src="./Suara Orang Teriak.mp3">
     </audio>
     <script>
         const horrorImage = document.querySelector('.horror-image')
         const btnSeeHere = document.querySelector('.btn-see-here')
+        const soundImg = document.getElementById('sound-image')
 
         function bodyChange() {
             document.body.style.background = 'black'
@@ -40,6 +41,7 @@
             btnSeeHere.style.display = 'none'
             horrorImage.style.display = 'block'
             bodyChange()
+            soundImg.play()
             setTimeout(function() {
                 hideJumpScare();
                 btnSeeHere.style.display = 'block';
