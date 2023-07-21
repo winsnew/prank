@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: white;
+        }
+        .horror-image {
+            display: none;
+            max-width: 80%;
+            animation: jumpscare o.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn-see-here bg-red-600 text-white font-bold py-2 px-4 rounded shadow mt-8">Klik Disini</button>
+    <img class="horror-image mt-4 " src="https://dl.kaskus.id/i.ytimg.com/vi/TN2DunrJY7k/hqdefault.jpg" alt="Horror Image">
+    <audio>
+        <source src="https://drive.google.com/file/d/1QGnRC0ZMzgQlBdtSACm3zgzgUBdsPbuK/view?usp=sharing" type="audio/mpeg">
+    </audio>
+    <script>
+        const horrorImage = document.querySelector('.horror-image')
+        const btnSeeHere = document.querySelector('.btn-see-here')
+
+        function bodyChange() {
+            document.body.style.background = 'black'
+        }
+
+        function showJumpScare() {
+            btnSeeHere.style.display = 'none'
+            horrorImage.style.display = 'block'
+            bodyChange()
+            setTimeout(function() {
+                hideJumpScare();
+                btnSeeHere.style.display = 'block';
+                document.body.style.background = 'white'
+            }, 3000);
+        }
+        function hideJumpScare() {
+            horrorImage.style.display = 'none'
+        }
+        btnSeeHere.addEventListener('click', showJumpScare);
+    </script>
+</body>
+</html>
